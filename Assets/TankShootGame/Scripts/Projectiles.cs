@@ -54,10 +54,14 @@ public class Projectiles : MonoBehaviour
             pooledObjects.Add(obj);
         }
     }
-    void OnEnable()
+    private void OnEnable()
     {
         lineRenderer.gameObject.SetActive(false);
         GameManager.OnReset += ResetProjectail;
+    }
+    private void OnDisable()
+    {
+        GameManager.OnReset -= ResetProjectail;
     }
 
     void Update()
